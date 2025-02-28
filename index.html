@@ -1,588 +1,988 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zoho - Your Life's Work, Powered by Ours</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourBrand - Business Growth Solutions</title>
     <style>
-      body {
-        font-family: "Roboto", sans-serif;
-        scroll-behavior: smooth;
-      }
-      .relative {
-        position: relative;
-      }
-      .absolute-cover {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 50%;
-        opacity: 1;
-        overflow: auto;
-        background: linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7));
-      }
-      @media (max-width: 768px) {
-        .absolute-cover {
-          height: 70%;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-      }
-
-      /* Fade-in animation for sections */
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f5f5f5;
         }
-        to {
-          opacity: 1;
-          transform: translateY(0);
+        
+        a {
+            text-decoration: none;
+            color: inherit;
         }
-      }
-      .animate-fade-in {
-        animation: fadeIn 1s ease-out forwards;
-      }
-
-      /* Button hover animation */
-      .btn-animated {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .btn-animated:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      /* Image hover animation */
-      .img-hover {
-        transition: transform 0.3s ease;
-      }
-      .img-hover:hover {
-        transform: scale(1.1);
-      }
-
-      /* Navigation link hover */
-      nav a {
-        transition: color 0.3s ease;
-      }
-      nav a:hover {
-        color: #e53e3e; /* Matches red theme */
-      }
-
-      /* Section background enhancement */
-      .bg-enhanced {
-        background: linear-gradient(135deg, #f7fafc, #edf2f7);
-      }
-      .bg-blue-enhanced {
-        background: linear-gradient(135deg, #2b6cb0, #1a4971);
-      }
+        
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: #4a6cf7;
+            background: linear-gradient(45deg, #4a6cf7, #7b93ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 35px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #4a6cf7;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #4a6cf7;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, #4a6cf7, #7b93ff);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 108, 247, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 108, 247, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4ecfb 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74, 108, 247, 0.1) 0%, transparent 70%);
+            top: -50%;
+            left: -50%;
+            animation: pulse 10s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .hero h1 {
+            font-size: 54px;
+            margin-bottom: 25px;
+            color: #1e293b;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto 45px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .secondary-button {
+            background-color: white;
+            color: #4a6cf7;
+            border: 2px solid #4a6cf7;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .secondary-button:hover {
+            background-color: #4a6cf7;
+            color: white;
+            box-shadow: 0 6px 20px rgba(74, 108, 247, 0.3);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            color: #1e293b;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #4a6cf7, #7b93ff);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+        }
+        
+        .feature-card {
+            padding: 40px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            background: linear-gradient(45deg, #ebf0ff, #f5f7ff);
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 30px;
+            color: #4a6cf7;
+            box-shadow: 0 4px 15px rgba(74, 108, 247, 0.1);
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+        
+        .feature-card p {
+            color: #64748b;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h3 {
+            font-size: 36px;
+            color: #1e293b;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .about-text h3::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #4a6cf7, #7b93ff);
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .about-text p {
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '“';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 60px;
+            color: #4a6cf7;
+            opacity: 0.1;
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            color: #1e293b;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .client-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #ebf0ff;
+            margin-right: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .client-name {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .client-position {
+            color: #64748b;
+            font-size: 14px;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 120px 0;
+            background-color: white;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .pricing-card {
+            padding: 40px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid #4a6cf7;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card.popular::after {
+            content: 'Popular';
+            position: absolute;
+            top: 20px;
+            right: -40px;
+            background: #4a6cf7;
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .pricing-card h3 {
+            font-size: 24px;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 40px;
+            color: #4a6cf7;
+            margin-bottom: 20px;
+        }
+        
+        .price span {
+            font-size: 16px;
+            color: #64748b;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features li {
+            margin: 15px 0;
+            color: #64748b;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4ecfb 100%);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info h3 {
+            font-size: 36px;
+            color: #1e293b;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #4a6cf7, #7b93ff);
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .contact-info p {
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+        
+        .contact-details {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details li span {
+            margin-right: 15px;
+            font-size: 24px;
+            color: #4a6cf7;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #1e293b;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e4ecfb;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #4a6cf7;
+            outline: none;
+            box-shadow: 0 0 5px rgba(74, 108, 247, 0.3);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #4a6cf7 0%, #7b93ff 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="rgba(255,255,255,0.1)" fill-opacity="1" d="M0,224L80,224C160,224,320,224,480,208C640,192,800,160,960,160C1120,160,1280,192,1360,208L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"%3E%3C/path%3E%3C/svg%3E');
+            background-size: cover;
+        }
+        
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-section p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 45px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .white-button {
+            background-color: white;
+            color: #4a6cf7;
+            padding: 14px 35px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .white-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e293b 0%, #2d3a50 100%);
+            color: white;
+            padding: 80px 0 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #4a6cf7;
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 10px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons a {
+                width: 100%;
+                max-width: 220px;
+                margin-bottom: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 32px;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                margin-top: 40px;
+            }
+        }
     </style>
-  </head>
-  <body class="bg-gray-100 text-gray-900">
+</head>
+<body>
     <!-- Header -->
-     
-    <header class="bg-white shadow animate-fade-in">
-      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div class="flex items-center">
-          <img
-            alt="Zoho Logo"
-            class="h-10 img-hover"
-            src="https://storage.googleapis.com/a1aa/image/LNLE7pABRh-GYl6Sl0UbAaxChlFdMJA5wZd8FQCTakg.jpg"
-          />
-          <nav class="ml-10 space-x-4">
-            <a class="text-gray-700 hover:text-gray-900" href="#" aria-haspopup="true">
-              Products <i class="fas fa-chevron-down"></i>
-            </a>
-            <a class="text-gray-700 hover:text-gray-900" href="#">Enterprise</a>
-            <a class="text-gray-700 hover:text-gray-900" href="#">Customers</a>
-            <a class="text-gray-700 hover:text-gray-900" href="#" aria-haspopup="true">
-              Company <i class="fas fa-chevron-down"></i>
-            </a>
-            <a class="text-gray-700 hover:text-gray-900" href="#">...</a>
-          </nav>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">YourBrand</div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#" class="cta-button">Get Started</a>
+            </nav>
         </div>
-        <div class="flex items-center space-x-4">
-          <button aria-label="Search" class="text-gray-700 hover:text-red-500">
-            <i class="fas fa-search"></i>
-          </button>
-          <button aria-label="Notifications" class="text-gray-700 hover:text-red-500">
-            <i class="fas fa-bell"></i>
-          </button>
-          <span class="text-gray-700">EN</span>
-          <a class="text-gray-700 hover:text-gray-900" href="#">Sign In</a>
-          <a
-            class="bg-gradient-to-r from-red-500 to-red-700 text-white px-4 py-2 rounded btn-animated"
-            href="#"
-          >
-            Sign Up
-          </a>
-        </div>
-      </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-16 flex flex-col lg:flex-row animate-fade-in">
-      <div class="lg:w-2/3">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900">
-          Your life's work, powered by our life's work
-        </h1>
-        <div class="mt-4 border-b-4 border-red-500 w-16"></div>
-        <p class="mt-4 text-lg text-gray-700">
-          A unique and powerful software suite to transform the way you work.
-          Designed for businesses of all sizes, built by a company that
-          <span class="underline">values your privacy</span>.
-        </p>
-        <a
-          class="mt-8 inline-flex items-center bg-gradient-to-r from-red-500 to-red-700 text-white text-lg px-6 py-3 rounded btn-animated"
-          href="#"
-        >
-          Get Started for Free <i class="fas fa-arrow-right ml-2"></i>
-        </a>
-      </div>
-      <aside class="lg:w-1/3 mt-16 lg:mt-0 lg:ml-16 bg-white p-8 rounded shadow">
-        <h2 class="text-xl font-semibold text-gray-900">Featured Apps</h2>
-        <div class="mt-4 space-y-4">
-          <div class="flex items-center">
-            <img
-              alt="CRM Icon"
-              class="h-10 w-10 img-hover"
-              src="https://storage.googleapis.com/a1aa/image/2b6ky8m3zy53DvtdPAyNRUpcPtPDcY1RiKzKmTOvxFM.jpg"
-            />
-            <div class="ml-4">
-              <h3 class="text-lg font-semibold text-gray-900">CRM</h3>
-              <p class="text-gray-700">Comprehensive CRM platform for customer-facing teams.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Transform Your Business with Smart Solutions</h1>
+            <p>Elevate your operations, boost productivity, and accelerate growth with our cutting-edge platform designed for modern businesses.</p>
+            <div class="hero-buttons">
+                <a href="#" class="cta-button">Start Free Trial</a>
+                <a href="#" class="secondary-button">Watch Demo</a>
             </div>
-          </div>
-          <div class="flex items-center">
-            <img
-              alt="Mail Icon"
-              class="h-10 w-10 img-hover"
-              src="https://storage.googleapis.com/a1aa/image/OtPa4mIq3rwndzhzObn3fixg1Ms0R-SUjCrBHQkRSjA.jpg"
-            />
-            <div class="ml-4">
-              <h3 class="text-lg font-semibold text-gray-900">Mail</h3>
-              <p class="text-gray-700">Secure email service for teams of all sizes.</p>
-            </div>
-          </div>
-          <div class="flex items-center">
-            <img
-              alt="Projects Icon"
-              class="h-10 w-10 img-hover"
-              src="https://storage.googleapis.com/a1aa/image/Fbw47T5eZylF0LoujSpeIAYUqrcBLKDQe2av9qVnrN8.jpg"
-            />
-            <div class="ml-4">
-              <h3 class="text-lg font-semibold text-gray-900">Projects</h3>
-              <p class="text-gray-700">Manage, track, and collaborate on projects with teams.</p>
-            </div>
-          </div>
-          <div class="flex items-center">
-            <img
-              alt="Books Icon"
-              class="h-10 w-10 img-hover"
-              src="https://storage.googleapis.com/a1aa/image/FLoDHoNd54xoouDwBXGV-KsaUFvAOYxs0pVh_B7TY5A.jpg"
-            />
-            <div class="ml-4">
-              <h3 class="text-lg font-semibold text-gray-900">Books</h3>
-              <p class="text-gray-700">Powerful accounting platform for growing businesses.</p>
-            </div>
-          </div>
-          <div class="flex items-center">
-            <img
-              alt="Creator Icon"
-              class="h-10 w-10 img-hover"
-              src="https://storage.googleapis.com/a1aa/image/FLoDHoNd54xoouDwBXGV-KsaUFvAOYxs0pVh_B7TY5A.jpg"
-            />
-            <div class="ml-4">
-              <h3 class="text-lg font-semibold text-gray-900">Creator</h3>
-              <p class="text-gray-700">Build custom apps to meet your unique business needs.</p>
-            </div>
-          </div>
         </div>
-      </aside>
-    </main>
-
-    <!-- Zoho One Section -->
-    <section
-      class="container mx-auto px-4 py-16 flex flex-col lg:flex-row items-center bg-yellow-500 text-black animate-fade-in"
-    >
-      <div class="lg:w-1/2">
-        <img
-          alt="Zoho One logo"
-          class="h-24 mb-4 img-hover"
-          src="https://storage.googleapis.com/a1aa/image/WeJdJfuGZBOjbUtpLADLmA4v7msmuZDrnpTu5oVbCoo.jpg"
-        />
-        <h2 class="text-xl font-semibold">All-in-one suite</h2>
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Zoho One</h1>
-        <p class="text-lg mb-6">The operating system for business</p>
-        <p class="text-base mb-6">
-          Run your entire business on Zoho with our unified cloud software,
-          designed to help you break down silos between departments and increase
-          organizational efficiency.
-        </p>
-        <a
-          class="bg-gradient-to-r from-red-600 to-red-800 text-white px-6 py-3 rounded btn-animated"
-          href="#"
-        >
-          Try Zoho One
-        </a>
-      </div>
-      <div class="lg:w-1/2 mt-12 lg:mt-0 lg:pl-12">
-        <div class="flex items-center mb-4">
-          <div class="bg-black text-white rounded-full p-2">
-            <i class="fas fa-quote-left"></i>
-          </div>
-        </div>
-        <blockquote class="text-2xl italic mb-4">
-          "You can be a startup, mid-sized company, or an enterprise—Zoho One is a boon for all."
-        </blockquote>
-        <div class="flex items-center">
-          <img
-            alt="Portrait of Prakarsh Gagdani"
-            class="rounded-full h-12 w-12 mr-4 img-hover"
-            src="https://storage.googleapis.com/a1aa/image/RhO6TYR2-vXXHV_6Xu72JaQawjrlPIXQcqBq_EBgO1k.jpg"
-          />
-          <div>
-            <p class="font-semibold">Prakarsh Gagdani</p>
-            <p class="text-sm">CEO, 5paisa.com (an IIFL subsidiary)</p>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- Trusted Brands Section -->
-    <section class="bg-enhanced py-12 animate-fade-in">
-      <div class="container mx-auto px-4">
-        <div class="text-center">
-          <h2 class="text-lg font-semibold">Brands That Trust Us</h2>
-          <div class="w-16 h-1 bg-red-500 mx-auto my-4"></div>
-        </div>
-        <div class="flex flex-wrap justify-center items-center space-x-8 space-y-4">
-          <img
-            alt="IIFL Finance logo"
-            class="h-12 img-hover"
-            src="https://storage.googleapis.com/a1aa/image/7BGuy-fP4jR3AONv9l0Vb22YhZeexKG45YhEQZHH984.jpg"
-          />
-          <img
-            alt="SpiceJet logo"
-            class="h-12 img-hover"
-            src="https://storage.googleapis.com/a1aa/image/NzxyFEe8zigQMQcuz9LEqoN2GM13HkB9HKsndbDNSEM.jpg"
-          />
-          <img
-            alt="L'Oreal logo"
-            class="h-12 img-hover"
-            src="https://storage.googleapis.com/a1aa/image/gMgsVmiPfq3NlFUqhw0mm86uyMyYMzisTODZyThreKE.jpg"
-          />
-          <img
-            alt="Amazon logo"
-            class="h-12 img-hover"
-            src="https://storage.googleapis.com/a1aa/image/_UnmFV2r-LSSjGbsa3yI3ect4Pyia1jmx0uLtK_ZrhY.jpg"
-          />
-          <img
-            alt="Tata Play logo"
-            class="h-12 img-hover"
-            src="https://storage.googleapis.com/a1aa/image/uZbhpk_PNQRzZr65oiVZyvTjHUY9RYrB7Miqo-QYzmc.jpg"
-          />
-          <img
-            alt="Zomato logo"
-            class="h-12 img-hover"
-            src="https://storage.googleapis.com/a1aa/image/BiZWyoSy7h9_16_Q8SIt6gV0lzyivy9WIGrV8_12XQI.jpg"
-          />
-          <img
-            alt="Max Life Insurance logo"
-            class="h-12 img-hover"
-            src="https://storage.googleapis.com/a1aa/image/GXsAq9zyDkm__LoHitRScH6ollyjkgLaesPncCDksGU.jpg"
-          />
-        </div>
-        <div class="text-center mt-8">
-          <a class="text-blue-600 font-semibold hover:underline" href="#">
-            Customer Stories <i class="fas fa-chevron-right ml-1"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Enterprise Section -->
-    <section class="animate-fade-in">
-      <div class="flex flex-col md:flex-row items-center justify-center p-6 md:p-12">
-        <div class="flex-1 flex justify-center">
-          <img
-            alt="Illustration of buildings and business growth"
-            class="w-full max-w-md img-hover"
-            src="https://storage.googleapis.com/a1aa/image/XclAVyi9tbukRJZ-vnB02awIAHloPXvO6_OQRNDd9To.jpg"
-          />
-        </div>
-        <div class="flex-1 mt-6 md:mt-0 md:ml-12">
-          <h1 class="text-2xl font-bold mb-4">
-            Zoho for <span class="text-blue-600">Enterprise</span>
-          </h1>
-          <p class="text-gray-700 mb-4">
-            Experience the breadth and depth of the Zoho ecosystem, with the
-            professional services, infrastructure, support, and security that a
-            large business needs. Streamline complex business processes, build
-            strong relationships with your customers, and drive growth at scale.
-          </p>
-          <button
-            type="button"
-            class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-2 rounded-full btn-animated"
-          >
-            Learn More
-          </button>
-        </div>
-      </div>
-      <div class="flex flex-col md:flex-row items-center justify-center p-6 md:p-12 bg-enhanced">
-        <div class="flex-1 flex justify-center">
-          <blockquote class="text-center md:text-left">
-            <p class="text-lg italic mb-4">
-              "With our complete business under control, our productivity is up
-              by 80% in the last year that we have been using Zoho."
-            </p>
-            <div class="flex items-center justify-center md:justify-start">
-              <img
-                alt="Portrait of Thomas John"
-                class="rounded-full w-12 h-12 mr-4 img-hover"
-                src="https://storage.googleapis.com/a1aa/image/v5Ks-zdtLSbX3rxzX56rwkl1Yf7lGULFuggXA-cUm2Q.jpg"
-              />
-              <div>
-                <p class="font-bold">Thomas John</p>
-                <a class="text-blue-600 hover:underline" href="#">
-                  Read the Story <i class="fas fa-chevron-right ml-1"></i>
-                </a>
-              </div>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Powerful Features for Your Success</h2>
+                <p>Discover a comprehensive suite of tools designed to streamline your workflow and drive results</p>
             </div>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="bg-blue-enhanced text-white animate-fade-in">
-      <div class="container mx-auto px-4 py-20">
-        <div class="text-center">
-          <h1 class="text-4xl md:text-5xl font-bold mb-6">
-            Made in India.<br />Made for the World.
-          </h1>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div>
-            <p class="text-4xl md:text-5xl font-bold">100M+</p>
-            <p class="text-lg md:text-xl">Users Globally</p>
-          </div>
-          <div>
-            <p class="text-4xl md:text-5xl font-bold">150+</p>
-            <p class="text-lg md:text-xl">Countries Served</p>
-          </div>
-          <div>
-            <p class="text-4xl md:text-5xl font-bold">15K+</p>
-            <p class="text-lg md:text-xl">Employees Worldwide</p>
-          </div>
-          <div>
-            <p class="text-4xl md:text-5xl font-bold">25+</p>
-            <p class="text-lg md:text-xl">Years in Business</p>
-          </div>
-          <div>
-            <p class="text-4xl md:text-5xl font-bold">55+</p>
-            <p class="text-lg md:text-xl">Products</p>
-          </div>
-        </div>
-        <div class="text-center mt-10">
-          <button
-            type="button"
-            class="bg-transparent border border-white text-white py-2 px-6 rounded-full text-lg md:text-xl btn-animated hover:bg-white hover:text-blue-700"
-          >
-            More About Zoho <i class="fas fa-arrow-right ml-2"></i>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Privacy Section -->
-    <section class="bg-white flex items-center justify-center py-16 animate-fade-in">
-      <div class="text-center px-4">
-        <img
-          alt="Shield icon with a check mark indicating privacy"
-          class="mx-auto mb-4 img-hover"
-          height="50"
-          src="https://storage.googleapis.com/a1aa/image/-I6Vj3QMlKDWXqfiBXs0Q-AlPHzoIQazNWwIQgBzdHs.jpg"
-          width="50"
-        />
-        <h1 class="text-3xl md:text-4xl font-semibold mb-4">
-          Your privacy is our responsibility
-        </h1>
-        <p class="text-lg md:text-xl text-gray-600 mb-6">
-          We believe that trust is paramount in a relationship. We do not own or
-          sell your data, and we most certainly do not bank on advertising-based
-          business models. The only way we make money is from the software
-          license fees you pay us.
-        </p>
-        <button
-          type="button"
-          class="bg-white text-red-600 border border-red-600 px-6 py-2 rounded-full flex items-center justify-center mx-auto btn-animated hover:bg-red-600 hover:text-white"
-        >
-          <i class="fas fa-play-circle mr-2"></i>
-          WATCH VIDEO
-        </button>
-      </div>
-    </section>
-
-    <!-- Core Values Section -->
-    <section class="bg-enhanced animate-fade-in">
-      <div class="container mx-auto">
-        <div class="relative">
-          <img
-            alt="Group of people at Zoholics India 2024 event"
-            class="w-full img-hover"
-            height="400"
-            src="https://storage.googleapis.com/a1aa/image/1UuPXMSWzKMFJUlY7JSfkRfKi3T7sfPB_T7hwO3MlUI.jpg"
-            width="1200"
-          />
-          <div class="bg-white py-8 absolute-cover">
-            <h1 class="text-center text-3xl font-semibold text-black">
-              The core values and principles that drive us
-            </h1>
-            <div class="container px-4 py-8">
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center md:text-left">
-                  <img
-                    alt="Handshake icon representing long-term commitment"
-                    class="mx-auto md:mx-0 mb-4 img-hover"
-                    height="50"
-                    src="https://storage.googleapis.com/a1aa/image/BhosL8pI-Dt9ZN-OLbxYlWGTCLQVN4TSqHfl8oDbFvI.jpg"
-                    width="50"
-                  />
-                  <h2 class="text-2xl font-semibold mb-4">Long-term commitment</h2>
-                  <p class="text-base leading-relaxed">
-                    25+ years of running a profitable organization gives us a good sense of
-                    challenges that a growing business faces. We take pride in running a
-                    sustainable business that’s powered by you, our customer.
-                  </p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Unlock actionable insights with real-time data visualization and customizable reporting tools.</p>
                 </div>
-                <div class="text-center md:text-left">
-                  <img
-                    alt="Target icon representing focus on research and development"
-                    class="mx-auto md:mx-0 mb-4 img-hover"
-                    height="50"
-                    src="https://storage.googleapis.com/a1aa/image/1yYobiSqoEihZ1lulOdTzFeSbFkFWCuudL7DPlrqqPE.jpg"
-                    width="50"
-                  />
-                  <h2 class="text-2xl font-semibold mb-4">Focus on research and development</h2>
-                  <p class="text-base leading-relaxed">
-                    Software is our craft and we back it up with our relentless
-                    investments in R&D. So much so that we prefer to own the entire
-                    technology stack, including running our data centers globally.
-                  </p>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Enterprise Security</h3>
+                    <p>Protect your data with state-of-the-art encryption and compliance with industry standards.</p>
                 </div>
-                <div class="text-center md:text-left">
-                  <img
-                    alt="People icon representing customer-first philosophy"
-                    class="mx-auto md:mx-0 mb-4 img-hover"
-                    height="50"
-                    src="https://storage.googleapis.com/a1aa/image/tczGRhr9hVYrs2uDNpNOnWnxiIRl7k4l1OxVU26vDxs.jpg"
-                    width="50"
-                  />
-                  <h2 class="text-2xl font-semibold mb-4">Customer-first philosophy</h2>
-                  <p class="text-base leading-relaxed">
-                    In all these years, it's our customers' trust and goodwill that has
-                    helped us establish a strong position in the market. No matter the
-                    size of your business, we're here to help you grow.
-                  </p>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Cross-Platform Access</h3>
+                    <p>Manage your business from anywhere with our fully responsive mobile and desktop apps.</p>
                 </div>
-              </div>
-              <div class="text-center mt-8">
-                <button
-                  type="button"
-                  class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-full text-base font-semibold btn-animated"
-                >
-                  READ OUR STORY <i class="fas fa-arrow-right ml-2"></i>
-                </button>
-              </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Smart Integrations</h3>
+                    <p>Seamlessly connect with 50+ popular tools through our powerful API ecosystem.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>High Performance</h3>
+                    <p>Experience lightning-fast operations with our cloud-optimized infrastructure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Team Collaboration</h3>
+                    <p>Enhance teamwork with built-in communication and project management tools.</p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About YourBrand</h2>
+                <p>Learn more about our mission and how we're revolutionizing business solutions</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>Founded in 2018, YourBrand started with a simple mission: to empower businesses with smart, intuitive tools that drive growth and efficiency. Our team of innovators and industry experts has since grown, delivering solutions to over 10,000 businesses worldwide.</p>
+                    <p>We believe in simplifying complex processes, making technology accessible, and providing unparalleled support to our clients. Our platform is built on cutting-edge technology, ensuring scalability and reliability for businesses of all sizes.</p>
+                    <a href="#" class="secondary-button">Our Team</a>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="About YourBrand">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trusted by Industry Leaders</h2>
+                <p>See how businesses like yours are thriving with YourBrand</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"YourBrand has revolutionized our workflow. The analytics alone saved us 20+ hours per week, and the mobile app keeps us connected on the go."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="/api/placeholder/60/60" alt="Client Avatar">
+                        </div>
+                        <div>
+                            <p class="client-name">Sarah Johnson</p>
+                            <p class="client-position">CEO, Tech Innovations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The integration capabilities are unmatched. We connected all our tools in under an hour, boosting our efficiency by 40%."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="/api/placeholder/60/60" alt="Client Avatar">
+                        </div>
+                        <div>
+                            <p class="client-name">Michael Chen</p>
+                            <p class="client-position">CTO, Growth Dynamics</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Support team is phenomenal, and the platform's reliability gives us peace of mind. It's a game-changer for our business."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="/api/placeholder/60/60" alt="Client Avatar">
+                        </div>
+                        <div>
+                            <p class="client-name">Emma Rodriguez</p>
+                            <p class="client-position">COO, Future Ventures</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Flexible Pricing Plans</h2>
+                <p>Choose the perfect plan for your business needs</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <div class="price">$29<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Up to 5 Users</li>
+                        <li>Basic Analytics</li>
+                        <li>10 Integrations</li>
+                        <li>Email Support</li>
+                    </ul>
+                    <a href="#" class="cta-button">Get Started</a>
+                </div>
+                <div class="pricing-card popular">
+                    <h3>Pro</h3>
+                    <div class="price">$79<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Up to 25 Users</li>
+                        <li>Advanced Analytics</li>
+                        <li>Unlimited Integrations</li>
+                        <li>Priority Support</li>
+                        <li>Team Collaboration</li>
+                    </ul>
+                    <a href="#" class="cta-button">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">$199<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Unlimited Users</li>
+                        <li>Custom Analytics</li>
+                        <li>Premium Integrations</li>
+                        <li>24/7 Support</li>
+                        <li>Dedicated Manager</li>
+                    </ul>
+                    <a href="#" class="cta-button">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get in Touch</h2>
+                <p>We'd love to hear from you! Contact us for support, inquiries, or feedback</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Connect With Us</h3>
+                    <p>Our team is here to assist you every step of the way. Reach out through any of the channels below or use the form to send us a message directly.</p>
+                    <ul class="contact-details">
+                        <li><span>📧</span> <a href="mailto:support@yourbrand.com">support@yourbrand.com</a></li>
+                        <li><span>📞</span> +1 (800) 123-4567</li>
+                        <li><span>🌍</span> 123 Innovation Drive, Tech City, TC 45678</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Start Growing Today</h2>
+            <p>Experience the power of YourBrand with a 14-day free trial. No credit card required.</p>
+            <a href="#" class="white-button">Try It Free Now</a>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-enhanced text-gray-900 mt-10 animate-fade-in">
-      <div class="text-center py-16">
-        <h1 class="text-4xl font-bold">Ready to do your best work?</h1>
-        <p class="text-xl mt-4">Let's get you started.</p>
-        <button
-          type="button"
-          class="mt-6 px-6 py-3 bg-gradient-to-r from-red-600 to-red-800 text-white font-semibold rounded btn-animated"
-        >
-          SIGN UP NOW <i class="fas fa-arrow-right ml-2"></i>
-        </button>
-      </div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-12">
-          <div>
-            <h2 class="text-lg font-semibold mb-4">Apps and Extensions</h2>
-            <ul class="space-y-2">
-              <li><a href="#" class="hover:text-blue-600">Mobile Apps</a></li>
-              <li><a href="#" class="hover:text-blue-600">Desktop Apps</a></li>
-              <li><a href="#" class="hover:text-blue-600">Developer Center</a></li>
-              <li><a href="#" class="hover:text-blue-600">Google Workspace Integration</a></li>
-              <li><a href="#" class="hover:text-blue-600">Microsoft 365 Integration</a></li>
-              <li><a href="#" class="hover:text-blue-600">Apps for Apple Watch</a></li>
-            </ul>
-          </div>
-          <div>
-            <h2 class="text-lg font-semibold mb-4">Learn</h2>
-            <ul class="space-y-2">
-              <li><a href="#" class="hover:text-blue-600">Training & Certification</a></li>
-              <li><a href="#" class="hover:text-blue-600">Academy</a></li>
-              <li><a href="#" class="hover:text-blue-600">Blog</a></li>
-              <li><a href="#" class="hover:text-blue-600">Knowledge Base</a></li>
-              <li><a href="#" class="hover:text-blue-600">Zia</a></li>
-              <li><a href="#" class="hover:text-blue-600">The Long Game</a></li>
-            </ul>
-          </div>
-          <div>
-            <h2 class="text-lg font-semibold mb-4">Community</h2>
-            <ul class="space-y-2">
-              <li><a href="#" class="hover:text-blue-600">User Community</a></li>
-              <li><a href="#" class="hover:text-blue-600">Customer Stories</a></li>
-              <li><a href="#" class="hover:text-blue-600">Work with a Partner</a></li>
-              <li><a href="#" class="hover:text-blue-600">Zoho for Startups</a></li>
-              <li><a href="#" class="hover:text-blue-600">Affiliate Program</a></li>
-              <li><a href="#" class="hover:text-blue-600">Humans of Zoho</a></li>
-            </ul>
-          </div>
-          <div>
-            <h2 class="text-lg font-semibold mb-4">Company</h2>
-            <ul class="space-y-2">
-              <li><a href="#" class="hover:text-blue-600">About Us</a></li>
-              <li><a href="#" class="hover:text-blue-600">Press</a></li>
-              <li><a href="#" class="hover:text-blue-600">Events</a></li>
-              <li><a href="#" class="hover:text-blue-600">Newsroom</a></li>
-              <li><a href="#" class="hover:text-blue-600">Branding Assets</a></li>
-              <li><a href="#" class="hover:text-blue-600">Zoho Schools</a></li>
-            </ul>
-          </div>
-          <div>
-            <h2 class="text-lg font-semibold mb-4">Contact Sales</h2>
-            <ul class="space-y-2">
-              <li><strong>Phone</strong></li>
-              <li>1800 103 1123</li>
-              <li>1800 572 3535</li>
-              <li><strong>Email</strong></li>
-              <li>
-                <a href="mailto:sales@zohocorp.com" class="text-blue-600 hover:underline">
-                  sales@zohocorp.com
-                </a>
-              </li>
-            </ul>
-          </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>YourBrand</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Newsroom</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Product</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Roadmap</a></li>
+                        <li><a href="#">Updates</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">API Docs</a></li>
+                        <li><a href="#">Forums</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 YourBrand. All rights reserved. Made with ❤️ around the world.</p>
+            </div>
         </div>
-      </div>
     </footer>
-  </body>
+
+    <script>
+        // Add scrolled class to header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
 </html>
