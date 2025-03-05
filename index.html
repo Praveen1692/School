@@ -10,359 +10,190 @@
         theme: {
           extend: {
             colors: {
-              primary: "#4a6cf7",
-              secondary: "#7b93ff",
+              primary: "#6B48FF",    // Vibrant Purple
+              secondary: "#00D4B4",  // Teal/Cyan
+              accent: "#FF6B81",     // Coral Pink
+              dark: "#2A1E5C",      // Deep Indigo
+              light: "#F0F4FF",     // Soft Blue-White
             },
           },
         },
       };
     </script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <style>
       @keyframes float {
-        0% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-        100% {
-          transform: translateY(0px);
-        }
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-25px) rotate(2deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
       }
       @keyframes slideIn {
-        from {
-          opacity: 0;
-          transform: translateX(-50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
       }
       @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
       }
-      .animate-float {
-        animation: float 3s ease-in-out infinite;
+      @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(107, 72, 255, 0.4); }
+        70% { box-shadow: 0 0 0 10px rgba(107, 72, 255, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(107, 72, 255, 0); }
       }
-      .animate-slide-in {
-        animation: slideIn 0.8s ease-out;
-      }
-      .animate-fade-in {
-        animation: fadeIn 1s ease-in;
+      .animate-float { animation: float 4s ease-in-out infinite; }
+      .animate-slide-in { animation: slideIn 0.8s ease-out forwards; }
+      .animate-fade-in { animation: fadeIn 1s ease-in forwards; }
+      .animate-pulse { animation: pulse 2s infinite; }
+      .hover-glow:hover {
+        box-shadow: 0 0 15px rgba(107, 72, 255, 0.3);
+        transition: box-shadow 0.3s ease;
       }
     </style>
   </head>
-  <body class="bg-gray-50 text-gray-900">
-    <header class="fixed w-full bg-white/90 backdrop-blur-md shadow-md z-50">
-      <div
-        class="container mx-auto px-4 py-4 flex justify-between items-center"
-      >
+  <body class="bg-light text-dark">
+    <header class="fixed w-full bg-white/95 backdrop-blur-md shadow-lg z-50">
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <div class="flex items-center animate-slide-in">
-          <i class="fas fa-bolt text-primary text-3xl mr-3"></i>
+          <i class="fas fa-bolt text-accent text-3xl mr-3"></i>
           <h1 class="text-2xl font-bold text-primary">FlowSync</h1>
         </div>
         <nav>
           <ul class="flex space-x-6">
-            <li>
-              <a href="#features" class="hover:text-primary transition"
-                >Features</a
-              >
-            </li>
-            <li>
-              <a href="#pricing" class="hover:text-primary transition"
-                >Pricing</a
-              >
-            </li>
-            <li>
-              <a href="#testimonials" class="hover:text-primary transition"
-                >Testimonials</a
-              >
-            </li>
-            <li>
-              <a href="#integrations" class="hover:text-primary transition"
-                >Integrations</a
-              >
-            </li>
-            <li>
-              <a href="#faq" class="hover:text-primary transition">FAQ</a>
-            </li>
+            <li><a href="#features" class="hover:text-accent transition">Features</a></li>
+            <li><a href="#pricing" class="hover:text-accent transition">Pricing</a></li>
+            <li><a href="#testimonials" class="hover:text-accent transition">Testimonials</a></li>
+            <li><a href="#integrations" class="hover:text-accent transition">Integrations</a></li>
+            <li><a href="#faq" class="hover:text-accent transition">FAQ</a></li>
           </ul>
         </nav>
-        <a
-          href="#"
-          class="bg-primary text-white px-6 py-2 rounded-full hover:bg-blue-600 transition transform hover:scale-105"
-          >Get Started</a
-        >
+        <a href="#" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-accent transition transform hover:scale-105 animate-pulse">Get Started</a>
       </div>
     </header>
 
     <main>
-      <section
-        class="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-blue-100 relative overflow-hidden"
-      >
+      <section class="pt-24 pb-16 bg-gradient-to-br from-primary to-dark relative overflow-hidden">
         <div class="container mx-auto px-4 text-center">
-          <h2 class="text-5xl font-bold mb-6 text-gray-800 animate-slide-in">
+          <h2 class="text-5xl font-bold mb-6 text-white animate-slide-in">
             Elevate Your Productivity
           </h2>
-          <p
-            class="text-xl text-gray-600 max-w-2xl mx-auto mb-10 animate-slide-in"
-            style="animation-delay: 0.2s"
-          >
-            FlowSync is your ultimate productivity companion, designed to help
-            you manage tasks, collaborate seamlessly, and achieve more with less
-            stress.
+          <p class="text-xl text-light max-w-2xl mx-auto mb-10 animate-slide-in" style="animation-delay: 0.2s">
+            FlowSync is your ultimate productivity companion, designed to help you manage tasks, collaborate seamlessly, and achieve more with less stress.
           </p>
           <div class="flex justify-center space-x-4">
-            <a
-              href="#"
-              class="bg-primary text-white px-8 py-3 rounded-full hover:bg-blue-600 transition transform hover:scale-105"
-              >Start Free Trial</a
-            >
-            <a
-              href="#"
-              class="border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white transition transform hover:scale-105"
-              >Watch Demo</a
-            >
+            <a href="#" class="bg-secondary text-dark px-8 py-3 rounded-full hover:bg-accent hover:text-white transition transform hover:scale-105 hover-glow">Start Free Trial</a>
+            <a href="#" class="border-2 border-light text-light px-8 py-3 rounded-full hover:bg-light hover:text-dark transition transform hover:scale-105">Watch Demo</a>
           </div>
         </div>
-        <img
-          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
-          onerror="this.src='https://via.placeholder.com/300x200?text=Productivity'"
-          alt="Productivity"
-          class="absolute top-10 right-10 w-48 h-32 object-cover rounded-lg shadow-lg animate-float"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
-          onerror="this.src='https://via.placeholder.com/200x150?text=Team'"
-          alt="Team"
-          class="absolute bottom-10 left-10 w-40 h-28 object-cover rounded-lg shadow-lg animate-float"
-          style="animation-delay: 1s"
-        />
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" onerror="this.src='https://via.placeholder.com/300x200?text=Productivity'" alt="Productivity" class="absolute top-10 right-10 w-48 h-32 object-cover rounded-lg shadow-xl animate-float hover-glow" />
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" onerror="this.src='https://via.placeholder.com/200x150?text=Team'" alt="Team" class="absolute bottom-10 left-10 w-40 h-28 object-cover rounded-lg shadow-xl animate-float" style="animation-delay: 1s" />
       </section>
 
       <section class="py-12 bg-white">
         <div class="container mx-auto px-4">
           <div class="grid md:grid-cols-4 gap-8 text-center">
             <div class="animate-slide-in">
-              <h3 class="text-4xl font-bold text-primary mb-2">50K+</h3>
-              <p class="text-gray-600">Active Users</p>
+              <h3 class="text-4xl font-bold text-accent mb-2">50K+</h3>
+              <p class="text-dark">Active Users</p>
             </div>
             <div class="animate-slide-in" style="animation-delay: 0.2s">
-              <h3 class="text-4xl font-bold text-primary mb-2">95%</h3>
-              <p class="text-gray-600">Customer Satisfaction</p>
+              <h3 class="text-4xl font-bold text-accent mb-2">95%</h3>
+              <p class="text-dark">Customer Satisfaction</p>
             </div>
             <div class="animate-slide-in" style="animation-delay: 0.4s">
-              <h3 class="text-4xl font-bold text-primary mb-2">1M+</h3>
-              <p class="text-gray-600">Tasks Completed</p>
+              <h3 class="text-4xl font-bold text-accent mb-2">1M+</h3>
+              <p class="text-dark">Tasks Completed</p>
             </div>
             <div class="animate-slide-in" style="animation-delay: 0.6s">
-              <h3 class="text-4xl font-bold text-primary mb-2">24/7</h3>
-              <p class="text-gray-600">Support Availability</p>
+              <h3 class="text-4xl font-bold text-accent mb-2">24/7</h3>
+              <p class="text-dark">Support Availability</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="py-16 bg-gray-50 relative">
+      <section class="py-16 bg-light relative">
         <div class="container mx-auto px-4">
           <div class="text-center mb-12">
-            <h3 class="text-4xl font-bold mb-4 animate-slide-in">
+            <h3 class="text-4xl font-bold text-dark mb-4 animate-slide-in">
               How FlowSync Works
             </h3>
-            <p
-              class="text-gray-600 max-w-2xl mx-auto animate-slide-in"
-              style="animation-delay: 0.2s"
-            >
+            <p class="text-dark max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s">
               Get started in three simple steps and revolutionize your workflow.
             </p>
           </div>
           <div class="grid md:grid-cols-3 gap-8">
-            <div class="text-center animate-slide-in">
-              <img
-                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
-                onerror="this.src='https://via.placeholder.com/100x100?text=Step+1'"
-                alt="Step 1"
-                class="w-16 h-16 mx-auto mb-4 rounded-full shadow-md"
-              />
-              <h4 class="text-xl font-semibold mb-3">Sign Up</h4>
-              <p class="text-gray-600">
-                Create your account in minutes and set up your team.
-              </p>
+            <div class="text-center animate-slide-in bg-white p-6 rounded-xl hover-glow">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" onerror="this.src='https://via.placeholder.com/100x100?text=Step+1'" alt="Step 1" class="w-16 h-16 mx-auto mb-4 rounded-full shadow-md" />
+              <h4 class="text-xl font-semibold mb-3 text-primary">Sign Up</h4>
+              <p class="text-dark">Create your account in minutes and set up your team.</p>
             </div>
-            <div
-              class="text-center animate-slide-in"
-              style="animation-delay: 0.2s"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
-                onerror="this.src='https://via.placeholder.com/100x100?text=Step+2'"
-                alt="Step 2"
-                class="w-16 h-16 mx-auto mb-4 rounded-full shadow-md"
-              />
-              <h4 class="text-xl font-semibold mb-3">Organize</h4>
-              <p class="text-gray-600">
-                Add tasks, set priorities, and assign team members.
-              </p>
+            <div class="text-center animate-slide-in bg-white p-6 rounded-xl hover-glow" style="animation-delay: 0.2s">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" onerror="this.src='https://via.placeholder.com/100x100?text=Step+2'" alt="Step 2" class="w-16 h-16 mx-auto mb-4 rounded-full shadow-md" />
+              <h4 class="text-xl font-semibold mb-3 text-primary">Organize</h4>
+              <p class="text-dark">Add tasks, set priorities, and assign team members.</p>
             </div>
-            <div
-              class="text-center animate-slide-in"
-              style="animation-delay: 0.4s"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
-                onerror="this.src='https://via.placeholder.com/100x100?text=Step+3'"
-                alt="Step 3"
-                class="w-16 h-16 mx-auto mb-4 rounded-full shadow-md"
-              />
-              <h4 class="text-xl font-semibold mb-3">Succeed</h4>
-              <p class="text-gray-600">
-                Track progress and achieve your goals faster.
-              </p>
+            <div class="text-center animate-slide-in bg-white p-6 rounded-xl hover-glow" style="animation-delay: 0.4s">
+              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" onerror="this.src='https://via.placeholder.com/100x100?text=Step+3'" alt="Step 3" class="w-16 h-16 mx-auto mb-4 rounded-full shadow-md" />
+              <h4 class="text-xl font-semibold mb-3 text-primary">Succeed</h4>
+              <p class="text-dark">Track progress and achieve your goals faster.</p>
             </div>
           </div>
         </div>
-        <img
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
-          onerror="this.src='https://via.placeholder.com/150x150?text=Workflow'"
-          alt="Workflow"
-          class="absolute top-10 right-10 w-32 h-32 object-cover rounded-lg shadow-lg animate-float"
-          style="animation-delay: 0.5s"
-        />
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" onerror="this.src='https://via.placeholder.com/150x150?text=Workflow'" alt="Workflow" class="absolute top-10 right-10 w-32 h-32 object-cover rounded-lg shadow-xl animate-float hover-glow" style="animation-delay: 0.5s" />
       </section>
 
       <section id="features" class="py-16 bg-white">
         <div class="container mx-auto px-4">
           <div class="text-center mb-12">
-            <h3 class="text-4xl font-bold mb-4 animate-slide-in">
+            <h3 class="text-4xl font-bold text-dark mb-4 animate-slide-in">
               Powerful Features
             </h3>
-            <p
-              class="text-gray-600 max-w-2xl mx-auto animate-slide-in"
-              style="animation-delay: 0.2s"
-            >
-              Discover how FlowSync transforms the way you work, collaborate,
-              and achieve your goals.
+            <p class="text-dark max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s">
+              Discover how FlowSync transforms the way you work, collaborate, and achieve your goals.
             </p>
           </div>
           <div class="grid md:grid-cols-3 gap-8">
-            <div
-              class="bg-blue-50 p-6 rounded-xl hover:shadow-lg transition transform hover:scale-105 animate-fade-in"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18"
-                onerror="this.src='https://via.placeholder.com/50x50?text=Tasks'"
-                alt="Tasks"
-                class="w-12 h-12 mx-auto mb-4"
-              />
-              <h4 class="text-xl font-semibold mb-3">Smart Task Management</h4>
-              <p class="text-gray-600">
-                Intelligently organize and prioritize tasks with AI-powered
-                suggestions.
-              </p>
+            <div class="bg-light p-6 rounded-xl hover:shadow-xl transition transform hover:scale-105 animate-fade-in hover-glow">
+              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18" onerror="this.src='https://via.placeholder.com/50x50?text=Tasks'" alt="Tasks" class="w-12 h-12 mx-auto mb-4" />
+              <h4 class="text-xl font-semibold mb-3 text-primary">Smart Task Management</h4>
+              <p class="text-dark">Intelligently organize and prioritize tasks with AI-powered suggestions.</p>
             </div>
-            <div
-              class="bg-blue-50 p-6 rounded-xl hover:shadow-lg transition transform hover:scale-105 animate-fade-in"
-              style="animation-delay: 0.2s"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18"
-                onerror="this.src='https://via.placeholder.com/50x50?text=Team'"
-                alt="Team"
-                class="w-12 h-12 mx-auto mb-4"
-              />
-              <h4 class="text-xl font-semibold mb-3">Team Collaboration</h4>
-              <p class="text-gray-600">
-                Real-time collaboration with intuitive sharing and communication
-                tools.
-              </p>
+            <div class="bg-light p-6 rounded-xl hover:shadow-xl transition transform hover:scale-105 animate-fade-in hover-glow" style="animation-delay: 0.2s">
+              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18" onerror="this.src='https://via.placeholder.com/50x50?text=Team'" alt="Team" class="w-12 h-12 mx-auto mb-4" />
+              <h4 class="text-xl font-semibold mb-3 text-primary">Team Collaboration</h4>
+              <p class="text-dark">Real-time collaboration with intuitive sharing and communication tools.</p>
             </div>
-            <div
-              class="bg-blue-50 p-6 rounded-xl hover:shadow-lg transition transform hover:scale-105 animate-fade-in"
-              style="animation-delay: 0.4s"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f"
-                onerror="this.src='https://via.placeholder.com/50x50?text=Analytics'"
-                alt="Analytics"
-                class="w-12 h-12 mx-auto mb-4"
-              />
-              <h4 class="text-xl font-semibold mb-3">Performance Analytics</h4>
-              <p class="text-gray-600">
-                Track progress, identify bottlenecks, and optimize your
-                workflow.
-              </p>
+            <div class="bg-light p-6 rounded-xl hover:shadow-xl transition transform hover:scale-105 animate-fade-in hover-glow" style="animation-delay: 0.4s">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" onerror="this.src='https://via.placeholder.com/50x50?text=Analytics'" alt="Analytics" class="w-12 h-12 mx-auto mb-4" />
+              <h4 class="text-xl font-semibold mb-3 text-primary">Performance Analytics</h4>
+              <p class="text-dark">Track progress, identify bottlenecks, and optimize your workflow.</p>
             </div>
-            <div
-              class="bg-blue-50 p-6 rounded-xl hover:shadow-lg transition transform hover:scale-105 animate-fade-in"
-              style="animation-delay: 0.6s"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18"
-                onerror="this.src='https://via.placeholder.com/50x50?text=Mobile'"
-                alt="Mobile"
-                class="w-12 h-12 mx-auto mb-4"
-              />
-              <h4 class="text-xl font-semibold mb-3">Mobile Access</h4>
-              <p class="text-gray-600">
-                Stay productive on-the-go with our powerful mobile apps.
-              </p>
+            <div class="bg-light p-6 rounded-xl hover:shadow-xl transition transform hover:scale-105 animate-fade-in hover-glow" style="animation-delay: 0.6s">
+              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18" onerror="this.src='https://via.placeholder.com/50x50?text=Mobile'" alt="Mobile" class="w-12 h-12 mx-auto mb-4" />
+              <h4 class="text-xl font-semibold mb-3 text-primary">Mobile Access</h4>
+              <p class="text-dark">Stay productive on-the-go with our powerful mobile apps.</p>
             </div>
-            <div
-              class="bg-blue-50 p-6 rounded-xl hover:shadow-lg transition transform hover:scale-105 animate-fade-in"
-              style="animation-delay: 0.8s"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1516542076529-1ea3854896f2"
-                onerror="this.src='https://via.placeholder.com/50x50?text=Security'"
-                alt="Security"
-                class="w-12 h-12 mx-auto mb-4"
-              />
-              <h4 class="text-xl font-semibold mb-3">Enterprise Security</h4>
-              <p class="text-gray-600">
-                Bank-grade encryption and advanced security features.
-              </p>
+            <div class="bg-light p-6 rounded-xl hover:shadow-xl transition transform hover:scale-105 animate-fade-in hover-glow" style="animation-delay: 0.8s">
+              <img src="https://images.unsplash.com/photo-1516542076529-1ea3854896f2" onerror="this.src='https://via.placeholder.com/50x50?text=Security'" alt="Security" class="w-12 h-12 mx-auto mb-4" />
+              <h4 class="text-xl font-semibold mb-3 text-primary">Enterprise Security</h4>
+              <p class="text-dark">Bank-grade encryption and advanced security features.</p>
             </div>
-            <div
-              class="bg-blue-50 p-6 rounded-xl hover:shadow-lg transition transform hover:scale-105 animate-fade-in"
-              style="animation-delay: 1s"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
-                onerror="this.src='https://via.placeholder.com/50x50?text=Integrations'"
-                alt="Integrations"
-                class="w-12 h-12 mx-auto mb-4"
-              />
-              <h4 class="text-xl font-semibold mb-3">Seamless Integrations</h4>
-              <p class="text-gray-600">
-                Connect with your favorite tools and services.
-              </p>
+            <div class="bg-light p-6 rounded-xl hover:shadow-xl transition transform hover:scale-105 animate-fade-in hover-glow" style="animation-delay: 1s">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" onerror="this.src='https://via.placeholder.com/50x50?text=Integrations'" alt="Integrations" class="w-12 h-12 mx-auto mb-4" />
+              <h4 class="text-xl font-semibold mb-3 text-primary">Seamless Integrations</h4>
+              <p class="text-dark">Connect with your favorite tools and services.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section
-        class="py-16 bg-gradient-to-br from-blue-50 to-blue-100 relative"
-      >
+      <section class="py-16 bg-gradient-to-br from-primary/10 to-light relative">
         <div class="container mx-auto px-4">
           <div class="text-center mb-12">
-            <h3 class="text-4xl font-bold mb-4 animate-slide-in">
+            <h3 class="text-4xl font-bold text-dark mb-4 animate-slide-in">
               Why Choose FlowSync?
             </h3>
-            <p
-              class="text-gray-600 max-w-2xl mx-auto animate-slide-in"
-              style="animation-delay: 0.2s"
-            >
+            <p class="text-dark max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s">
               Experience the benefits that set us apart from the competition.
             </p>
           </div>
@@ -370,147 +201,82 @@
             <div>
               <div class="space-y-6">
                 <div class="flex items-start animate-slide-in">
-                  <i
-                    class="fas fa-check-circle text-primary text-2xl mr-4 mt-1"
-                  ></i>
+                  <i class="fas fa-check-circle text-accent text-2xl mr-4 mt-1"></i>
                   <div>
-                    <h4 class="text-xl font-semibold mb-2">
-                      Intuitive Interface
-                    </h4>
-                    <p class="text-gray-600">
-                      User-friendly design that requires minimal training.
-                    </p>
+                    <h4 class="text-xl font-semibold mb-2 text-primary">Intuitive Interface</h4>
+                    <p class="text-dark">User-friendly design that requires minimal training.</p>
                   </div>
                 </div>
-                <div
-                  class="flex items-start animate-slide-in"
-                  style="animation-delay: 0.2s"
-                >
-                  <i
-                    class="fas fa-check-circle text-primary text-2xl mr-4 mt-1"
-                  ></i>
+                <div class="flex items-start animate-slide-in" style="animation-delay: 0.2s">
+                  <i class="fas fa-check-circle text-accent text-2xl mr-4 mt-1"></i>
                   <div>
-                    <h4 class="text-xl font-semibold mb-2">
-                      Scalable Solution
-                    </h4>
-                    <p class="text-gray-600">
-                      Grows with your team, from startups to enterprises.
-                    </p>
+                    <h4 class="text-xl font-semibold mb-2 text-primary">Scalable Solution</h4>
+                    <p class="text-dark">Grows with your team, from startups to enterprises.</p>
                   </div>
                 </div>
-                <div
-                  class="flex items-start animate-slide-in"
-                  style="animation-delay: 0.4s"
-                >
-                  <i
-                    class="fas fa-check-circle text-primary text-2xl mr-4 mt-1"
-                  ></i>
+                <div class="flex items-start animate-slide-in" style="animation-delay: 0.4s">
+                  <i class="fas fa-check-circle text-accent text-2xl mr-4 mt-1"></i>
                   <div>
-                    <h4 class="text-xl font-semibold mb-2">Time Saving</h4>
-                    <p class="text-gray-600">
-                      Automate routine tasks and focus on what matters.
-                    </p>
+                    <h4 class="text-xl font-semibold mb-2 text-primary">Time Saving</h4>
+                    <p class="text-dark">Automate routine tasks and focus on what matters.</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="bg-blue-200 p-8 rounded-xl">
-              <img
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18"
-                onerror="this.src='https://via.placeholder.com/400x300?text=Dashboard'"
-                alt="Dashboard Preview"
-                class="w-full rounded-lg shadow-lg animate-float"
-              />
+            <div class="bg-primary/10 p-8 rounded-xl hover-glow">
+              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18" onerror="this.src='https://via.placeholder.com/400x300?text=Dashboard'" alt="Dashboard Preview" class="w-full rounded-lg shadow-lg animate-float" />
             </div>
           </div>
         </div>
-        <img
-          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
-          onerror="this.src='https://via.placeholder.com/150x150?text=Benefit'"
-          alt="Benefit"
-          class="absolute bottom-10 right-10 w-32 h-32 object-cover rounded-lg shadow-lg animate-float"
-          style="animation-delay: 1s"
-        />
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" onerror="this.src='https://via.placeholder.com/150x150?text=Benefit'" alt="Benefit" class="absolute bottom-10 right-10 w-32 h-32 object-cover rounded-lg shadow-xl animate-float hover-glow" style="animation-delay: 1s" />
       </section>
 
-      <section id="pricing" class="py-16 bg-gray-50">
+      <section id="pricing" class="py-16 bg-light">
         <div class="container mx-auto px-4">
           <div class="text-center mb-12">
-            <h3 class="text-4xl font-bold mb-4 animate-slide-in">
+            <h3 class="text-4xl font-bold text-dark mb-4 animate-slide-in">
               Flexible Pricing
             </h3>
-            <p
-              class="text-gray-600 max-w-2xl mx-auto animate-slide-in"
-              style="animation-delay: 0.2s"
-            >
+            <p class="text-dark max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s">
               Choose a plan that fits your team's unique needs and budget.
             </p>
           </div>
           <div class="grid md:grid-cols-3 gap-8">
-            <div
-              class="bg-white p-8 rounded-xl shadow-md text-center transform hover:scale-105 transition animate-fade-in"
-            >
-              <h4 class="text-2xl font-semibold mb-4">Starter</h4>
-              <p class="text-4xl font-bold text-primary mb-6">
-                $9<span class="text-sm">/month</span>
-              </p>
-              <ul class="mb-8 space-y-3">
+            <div class="bg-white p-8 rounded-xl shadow-md text-center transform hover:scale-105 transition animate-fade-in hover-glow">
+              <h4 class="text-2xl font-semibold mb-4 text-primary">Starter</h4>
+              <p class="text-4xl font-bold text-accent mb-6">$9<span class="text-sm">/month</span></p>
+              <ul class="mb-8 space-y-3 text-dark">
                 <li>Up to 5 Users</li>
                 <li>Basic Task Management</li>
                 <li>Email Support</li>
                 <li>5GB Storage</li>
               </ul>
-              <a
-                href="#"
-                class="block bg-blue-50 text-primary py-3 rounded-full hover:bg-primary hover:text-white transition"
-                >Get Started</a
-              >
+              <a href="#" class="block bg-light text-primary py-3 rounded-full hover:bg-accent hover:text-white transition">Get Started</a>
             </div>
-            <div
-              class="bg-white p-8 rounded-xl shadow-md text-center border-2 border-primary relative transform hover:scale-105 transition animate-fade-in"
-              style="animation-delay: 0.2s"
-            >
-              <span
-                class="bg-primary text-white px-4 py-1 rounded-full text-sm absolute -top-4 left-1/2 transform -translate-x-1/2"
-                >Most Popular</span
-              >
-              <h4 class="text-2xl font-semibold mb-4">Pro</h4>
-              <p class="text-4xl font-bold text-primary mb-6">
-                $29<span class="text-sm">/month</span>
-              </p>
-              <ul class="mb-8 space-y-3">
+            <div class="bg-white p-8 rounded-xl shadow-md text-center border-2 border-accent relative transform hover:scale-105 transition animate-fade-in hover-glow" style="animation-delay: 0.2s">
+              <span class="bg-accent text-white px-4 py-1 rounded-full text-sm absolute -top-4 left-1/2 transform -translate-x-1/2">Most Popular</span>
+              <h4 class="text-2xl font-semibold mb-4 text-primary">Pro</h4>
+              <p class="text-4xl font-bold text-accent mb-6">$29<span class="text-sm">/month</span></p>
+              <ul class="mb-8 space-y-3 text-dark">
                 <li>Up to 25 Users</li>
                 <li>Advanced Collaboration</li>
                 <li>Priority Support</li>
                 <li>Performance Analytics</li>
                 <li>25GB Storage</li>
               </ul>
-              <a
-                href="#"
-                class="block bg-primary text-white py-3 rounded-full hover:bg-blue-700 transition"
-                >Get Started</a
-              >
+              <a href="#" class="block bg-primary text-white py-3 rounded-full hover:bg-accent transition">Get Started</a>
             </div>
-            <div
-              class="bg-white p-8 rounded-xl shadow-md text-center transform hover:scale-105 transition animate-fade-in"
-              style="animation-delay: 0.4s"
-            >
-              <h4 class="text-2xl font-semibold mb-4">Enterprise</h4>
-              <p class="text-4xl font-bold text-primary mb-6">
-                $99<span class="text-sm">/month</span>
-              </p>
-              <ul class="mb-8 space-y-3">
+            <div class="bg-white p-8 rounded-xl shadow-md text-center transform hover:scale-105 transition animate-fade-in hover-glow" style="animation-delay: 0.4s">
+              <h4 class="text-2xl font-semibold mb-4 text-primary">Enterprise</h4>
+              <p class="text-4xl font-bold text-accent mb-6">$99<span class="text-sm">/month</span></p>
+              <ul class="mb-8 space-y-3 text-dark">
                 <li>Unlimited Users</li>
                 <li>Custom Integrations</li>
                 <li>Dedicated Support</li>
                 <li>Advanced Security</li>
                 <li>100GB Storage</li>
               </ul>
-              <a
-                href="#"
-                class="block bg-blue-50 text-primary py-3 rounded-full hover:bg-primary hover:text-white transition"
-                >Contact Sales</a
-              >
+              <a href="#" class="block bg-light text-primary py-3 rounded-full hover:bg-accent hover:text-white transition">Contact Sales</a>
             </div>
           </div>
         </div>
@@ -519,77 +285,41 @@
       <section id="testimonials" class="py-16 bg-white">
         <div class="container mx-auto px-4">
           <div class="text-center mb-12">
-            <h3 class="text-4xl font-bold mb-4 animate-slide-in">
+            <h3 class="text-4xl font-bold text-dark mb-4 animate-slide-in">
               What Our Users Say
             </h3>
-            <p
-              class="text-gray-600 max-w-2xl mx-auto animate-slide-in"
-              style="animation-delay: 0.2s"
-            >
-              Hear from teams who have transformed their productivity with
-              FlowSync.
+            <p class="text-dark max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s">
+              Hear from teams who have transformed their productivity with FlowSync.
             </p>
           </div>
           <div class="grid md:grid-cols-3 gap-8">
-            <div
-              class="bg-blue-50 p-6 rounded-xl transform hover:scale-105 transition animate-fade-in"
-            >
-              <p class="italic mb-4">
-                "FlowSync has been a game-changer for our remote team. We've
-                never been more aligned and productive."
-              </p>
+            <div class="bg-light p-6 rounded-xl transform hover:scale-105 transition animate-fade-in hover-glow">
+              <p class="italic mb-4 text-dark">"FlowSync has been a game-changer for our remote team. We've never been more aligned and productive."</p>
               <div class="flex items-center">
-                <img
-                  src="https://randomuser.me/api/portraits/men/32.jpg"
-                  onerror="this.src='https://via.placeholder.com/50x50?text=User'"
-                  class="w-12 h-12 rounded-full mr-4"
-                  alt="User"
-                />
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" onerror="this.src='https://via.placeholder.com/50x50?text=User'" class="w-12 h-12 rounded-full mr-4" alt="User" />
                 <div>
-                  <h5 class="font-semibold">Michael Chen</h5>
-                  <p class="text-gray-600 text-sm">CTO, Tech Innovations</p>
+                  <h5 class="font-semibold text-primary">Michael Chen</h5>
+                  <p class="text-dark text-sm">CTO, Tech Innovations</p>
                 </div>
               </div>
             </div>
-            <div
-              class="bg-blue-50 p-6 rounded-xl transform hover:scale-105 transition animate-fade-in"
-              style="animation-delay: 0.2s"
-            >
-              <p class="italic mb-4">
-                "The AI task prioritization is incredible. It's like having a
-                productivity coach in my pocket."
-              </p>
+            <div class="bg-light p-6 rounded-xl transform hover:scale-105 transition animate-fade-in hover-glow" style="animation-delay: 0.2s">
+              <p class="italic mb-4 text-dark">"The AI task prioritization is incredible. It's like having a productivity coach in my pocket."</p>
               <div class="flex items-center">
-                <img
-                  src="https://randomuser.me/api/portraits/women/44.jpg"
-                  onerror="this.src='https://via.placeholder.com/50x50?text=User'"
-                  class="w-12 h-12 rounded-full mr-4"
-                  alt="User"
-                />
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" onerror="this.src='https://via.placeholder.com/50x50?text=User'" class="w-12 h-12 rounded-full mr-4" alt="User" />
                 <div>
-                  <h5 class="font-semibold">Sarah Rodriguez</h5>
-                  <p class="text-gray-600 text-sm">Product Manager</p>
+                  <h5 class="font-semibold text-primary">Sarah Rodriguez</h5>
+                  <p class="text-dark text-sm">Product Manager</p>
                 </div>
               </div>
             </div>
-            <div
-              class="bg-blue-50 p-6 rounded-xl transform hover:scale-105 transition animate-fade-in"
-              style="animation-delay: 0.4s"
-            >
-              <p class="italic mb-4">
-                "Our team's collaboration has improved dramatically. FlowSync is
-                now our central hub."
-              </p>
+            <div class="bg-light p-6 rounded-xl transform hover:scale-105 transition animate-fade-in hover-glow" style="animation-delay: 0.4s">
+              <p class="italic mb-4 text-dark">"Our team's collaboration has improved dramatically. FlowSync is now our central hub."</p>
               <div class="flex items-center">
-                <img
-                  src="https://randomuser.me/api/portraits/men/75.jpg"
-                  onerror="this.src='https://via.placeholder.com/50x50?text=User'"
-                  class="w-12 h-12 rounded-full mr-4"
-                  alt="User"
-                />
+                <img src="https://randomuser.me/api/portraits/men/75.jpg" onerror="this.src='https://via.placeholder.com/50x50?text=User'" class="w-12 h-12 rounded-full mr-4" alt="User" />
                 <div>
-                  <h5 class="font-semibold">David Thompson</h5>
-                  <p class="text-gray-600 text-sm">Startup Founder</p>
+                  <h5 class="font-semibold text-primary">David Thompson</h5>
+                  <p class="text-dark text-sm">Startup Founder</p>
                 </div>
               </div>
             </div>
@@ -597,74 +327,31 @@
         </div>
       </section>
 
-      <section id="integrations" class="py-16 bg-gray-50">
+      <section id="integrations" class="py-16 bg-light">
         <div class="container mx-auto px-4">
           <div class="text-center mb-12">
-            <h3 class="text-4xl font-bold mb-4 animate-slide-in">
+            <h3 class="text-4xl font-bold text-dark mb-4 animate-slide-in">
               Seamless Integrations
             </h3>
-            <p
-              class="text-gray-600 max-w-2xl mx-auto animate-slide-in"
-              style="animation-delay: 0.2s"
-            >
-              Connect FlowSync with your favorite tools to create a unified
-              workflow.
+            <p class="text-dark max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s">
+              Connect FlowSync with your favorite tools to create a unified workflow.
             </p>
           </div>
           <div class="grid md:grid-cols-5 gap-8">
-            <div
-              class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center transform hover:scale-110 transition animate-fade-in"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18"
-                onerror="this.src='https://via.placeholder.com/50x50?text=Slack'"
-                alt="Slack"
-                class="w-12 h-12"
-              />
+            <div class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center transform hover:scale-110 transition animate-fade-in hover-glow">
+              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18" onerror="this.src='https://via.placeholder.com/50x50?text=Slack'" alt="Slack" class="w-12 h-12" />
             </div>
-            <div
-              class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center transform hover:scale-110 transition animate-fade-in"
-              style="animation-delay: 0.2s"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18"
-                onerror="this.src='https://via.placeholder.com/50x50?text=Drive'"
-                alt="Google Drive"
-                class="w-12 h-12"
-              />
+            <div class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center transform hover:scale-110 transition animate-fade-in hover-glow" style="animation-delay: 0.2s">
+              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18" onerror="this.src='https://via.placeholder.com/50x50?text=Drive'" alt="Google Drive" class="w-12 h-12" />
             </div>
-            <div
-              class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center transform hover:scale-110 transition animate-fade-in"
-              style="animation-delay: 0.4s"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18"
-                onerror="this.src='https://via.placeholder.com/50x50?text=Trello'"
-                alt="Trello"
-                class="w-12 h-12"
-              />
+            <div class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center transform hover:scale-110 transition animate-fade-in hover-glow" style="animation-delay: 0.4s">
+              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18" onerror="this.src='https://via.placeholder.com/50x50?text=Trello'" alt="Trello" class="w-12 h-12" />
             </div>
-            <div
-              class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center transform hover:scale-110 transition animate-fade-in"
-              style="animation-delay: 0.6s"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18"
-                onerror="this.src='https://via.placeholder.com/50x50?text=Dropbox'"
-                alt="Dropbox"
-                class="w-12 h-12"
-              />
+            <div class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center transform hover:scale-110 transition animate-fade-in hover-glow" style="animation-delay: 0.6s">
+              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18" onerror="this.src='https://via.placeholder.com/50x50?text=Dropbox'" alt="Dropbox" class="w-12 h-12" />
             </div>
-            <div
-              class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center transform hover:scale-110 transition animate-fade-in"
-              style="animation-delay: 0.8s"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18"
-                onerror="this.src='https://via.placeholder.com/50x50?text=More'"
-                alt="More"
-                class="w-12 h-12"
-              />
+            <div class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center transform hover:scale-110 transition animate-fade-in hover-glow" style="animation-delay: 0.8s">
+              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18" onerror="this.src='https://via.placeholder.com/50x50?text=More'" alt="More" class="w-12 h-12" />
             </div>
           </div>
         </div>
@@ -673,242 +360,119 @@
       <section id="faq" class="py-16 bg-white">
         <div class="container mx-auto px-4">
           <div class="text-center mb-12">
-            <h3 class="text-4xl font-bold mb-4 animate-slide-in">
+            <h3 class="text-4xl font-bold text-dark mb-4 animate-slide-in">
               Frequently Asked Questions
             </h3>
-            <p
-              class="text-gray-600 max-w-2xl mx-auto animate-slide-in"
-              style="animation-delay: 0.2s"
-            >
+            <p class="text-dark max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s">
               Find answers to common questions about FlowSync.
             </p>
           </div>
           <div class="max-w-3xl mx-auto space-y-6">
-            <div class="bg-blue-50 p-6 rounded-xl animate-fade-in">
-              <h4 class="text-xl font-semibold mb-2">What is FlowSync?</h4>
-              <p class="text-gray-600">
-                FlowSync is a productivity platform that helps teams manage
-                tasks, collaborate effectively, and track performance with
-                powerful features and integrations.
-              </p>
+            <div class="bg-light p-6 rounded-xl animate-fade-in hover-glow">
+              <h4 class="text-xl font-semibold mb-2 text-primary">What is FlowSync?</h4>
+              <p class="text-dark">FlowSync is a productivity platform that helps teams manage tasks, collaborate effectively, and track performance with powerful features and integrations.</p>
             </div>
-            <div
-              class="bg-blue-50 p-6 rounded-xl animate-fade-in"
-              style="animation-delay: 0.2s"
-            >
-              <h4 class="text-xl font-semibold mb-2">Is there a free trial?</h4>
-              <p class="text-gray-600">
-                Yes, we offer a 14-day free trial for all plans, no credit card
-                required.
-              </p>
+            <div class="bg-light p-6 rounded-xl animate-fade-in hover-glow" style="animation-delay: 0.2s">
+              <h4 class="text-xl font-semibold mb-2 text-primary">Is there a free trial?</h4>
+              <p class="text-dark">Yes, we offer a 14-day free trial for all plans, no credit card required.</p>
             </div>
-            <div
-              class="bg-blue-50 p-6 rounded-xl animate-fade-in"
-              style="animation-delay: 0.4s"
-            >
-              <h4 class="text-xl font-semibold mb-2">
-                Can I change plans later?
-              </h4>
-              <p class="text-gray-600">
-                Absolutely! You can upgrade or downgrade your plan at any time
-                to match your team's needs.
-              </p>
+            <div class="bg-light p-6 rounded-xl animate-fade-in hover-glow" style="animation-delay: 0.4s">
+              <h4 class="text-xl font-semibold mb-2 text-primary">Can I change plans later?</h4>
+              <p class="text-dark">Absolutely! You can upgrade or downgrade your plan at any time to match your team's needs.</p>
             </div>
-            <div
-              class="bg-blue-50 p-6 rounded-xl animate-fade-in"
-              style="animation-delay: 0.6s"
-            >
-              <h4 class="text-xl font-semibold mb-2">
-                What kind of support do you offer?
-              </h4>
-              <p class="text-gray-600">
-                We provide 24/7 support through email, chat, and phone,
-                depending on your plan tier.
-              </p>
+            <div class="bg-light p-6 rounded-xl animate-fade-in hover-glow" style="animation-delay: 0.6s">
+              <h4 class="text-xl font-semibold mb-2 text-primary">What kind of support do you offer?</h4>
+              <p class="text-dark">We provide 24/7 support through email, chat, and phone, depending on your plan tier.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="py-16 bg-gradient-to-br from-blue-50 to-blue-100">
+      <section class="py-16 bg-gradient-to-br from-primary/10 to-light">
         <div class="container mx-auto px-4">
           <div class="text-center mb-12">
-            <h3 class="text-4xl font-bold mb-4 animate-slide-in">
+            <h3 class="text-4xl font-bold text-dark mb-4 animate-slide-in">
               Meet Our Team
             </h3>
-            <p
-              class="text-gray-600 max-w-2xl mx-auto animate-slide-in"
-              style="animation-delay: 0.2s"
-            >
+            <p class="text-dark max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s">
               The dedicated professionals behind FlowSync's success.
             </p>
           </div>
           <div class="grid md:grid-cols-3 gap-8">
-            <div
-              class="bg-white p-6 rounded-xl shadow-md text-center transform hover:scale-105 transition animate-fade-in"
-            >
-              <img
-                src="https://randomuser.me/api/portraits/women/65.jpg"
-                onerror="this.src='https://via.placeholder.com/100x100?text=Team'"
-                class="w-24 h-24 rounded-full mx-auto mb-4"
-                alt="Team Member"
-              />
-              <h4 class="text-xl font-semibold mb-2">Emma Johnson</h4>
-              <p class="text-gray-600">CEO & Founder</p>
+            <div class="bg-white p-6 rounded-xl shadow-md text-center transform hover:scale-105 transition animate-fade-in hover-glow">
+              <img src="https://randomuser.me/api/portraits/women/65.jpg" onerror="this.src='https://via.placeholder.com/100x100?text=Team'" class="w-24 h-24 rounded-full mx-auto mb-4" alt="Team Member" />
+              <h4 class="text-xl font-semibold mb-2 text-primary">Emma Johnson</h4>
+              <p class="text-dark">CEO & Founder</p>
             </div>
-            <div
-              class="bg-white p-6 rounded-xl shadow-md text-center transform hover:scale-105 transition animate-fade-in"
-              style="animation-delay: 0.2s"
-            >
-              <img
-                src="https://randomuser.me/api/portraits/men/45.jpg"
-                onerror="this.src='https://via.placeholder.com/100x100?text=Team'"
-                class="w-24 h-24 rounded-full mx-auto mb-4"
-                alt="Team Member"
-              />
-              <h4 class="text-xl font-semibold mb-2">Liam Carter</h4>
-              <p class="text-gray-600">CTO</p>
+            <div class="bg-white p-6 rounded-xl shadow-md text-center transform hover:scale-105 transition animate-fade-in hover-glow" style="animation-delay: 0.2s">
+              <img src="https://randomuser.me/api/portraits/men/45.jpg" onerror="this.src='https://via.placeholder.com/100x100?text=Team'" class="w-24 h-24 rounded-full mx-auto mb-4" alt="Team Member" />
+              <h4 class="text-xl font-semibold mb-2 text-primary">Liam Carter</h4>
+              <p class="text-dark">CTO</p>
             </div>
-            <div
-              class="bg-white p-6 rounded-xl shadow-md text-center transform hover:scale-105 transition animate-fade-in"
-              style="animation-delay: 0.4s"
-            >
-              <img
-                src="https://randomuser.me/api/portraits/women/23.jpg"
-                onerror="this.src='https://via.placeholder.com/100x100?text=Team'"
-                class="w-24 h-24 rounded-full mx-auto mb-4"
-                alt="Team Member"
-              />
-              <h4 class="text-xl font-semibold mb-2">Olivia Smith</h4>
-              <p class="text-gray-600">Head of Product</p>
+            <div class="bg-white p-6 rounded-xl shadow-md text-center transform hover:scale-105 transition animate-fade-in hover-glow" style="animation-delay: 0.4s">
+              <img src="https://randomuser.me/api/portraits/women/23.jpg" onerror="this.src='https://via.placeholder.com/100x100?text=Team'" class="w-24 h-24 rounded-full mx-auto mb-4" alt="Team Member" />
+              <h4 class="text-xl font-semibold mb-2 text-primary">Olivia Smith</h4>
+              <p class="text-dark">Head of Product</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="py-16 bg-primary text-white relative overflow-hidden">
+      <section class="py-16 bg-gradient-to-br from-primary to-dark text-white relative overflow-hidden">
         <div class="container mx-auto px-4 text-center">
           <h3 class="text-4xl font-bold mb-6 animate-slide-in">
             Ready to Transform Your Workflow?
           </h3>
-          <p
-            class="text-xl max-w-2xl mx-auto mb-8 animate-slide-in"
-            style="animation-delay: 0.2s"
-          >
-            Join thousands of teams already using FlowSync to boost their
-            productivity.
+          <p class="text-xl max-w-2xl mx-auto mb-8 animate-slide-in" style="animation-delay: 0.2s">
+            Join thousands of teams already using FlowSync to boost their productivity.
           </p>
-          <a
-            href="#"
-            class="bg-white text-primary px-8 py-3 rounded-full hover:bg-gray-100 transition inline-block transform hover:scale-105"
-            >Start Your Free Trial</a
-          >
+          <a href="#" class="bg-secondary text-dark px-8 py-3 rounded-full hover:bg-accent hover:text-white transition inline-block transform hover:scale-105 hover-glow">Start Your Free Trial</a>
         </div>
-        <img
-          src="https://images.unsplash.com/photo-1511632765486-a01980e01a18"
-          onerror="this.src='https://via.placeholder.com/200x200?text=CTA'"
-          alt="CTA"
-          class="absolute top-10 right-10 w-40 h-40 object-cover rounded-full shadow-lg animate-float"
-        />
+        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18" onerror="this.src='https://via.placeholder.com/200x200?text=CTA'" alt="CTA" class="absolute top-10 right-10 w-40 h-40 object-cover rounded-full shadow-xl animate-float hover-glow" />
       </section>
 
-      <footer class="bg-gray-900 text-white py-16">
+      <footer class="bg-dark text-white py-16">
         <div class="container mx-auto px-4">
           <div class="grid md:grid-cols-4 gap-8">
             <div class="animate-fade-in">
-              <h4 class="text-xl font-bold mb-4">FlowSync</h4>
-              <p class="text-gray-400">
-                Empowering teams to achieve more, together.
-              </p>
+              <h4 class="text-xl font-bold mb-4 text-accent">FlowSync</h4>
+              <p class="text-gray-300">Empowering teams to achieve more, together.</p>
               <div class="mt-4 flex space-x-4">
-                <a
-                  href="#"
-                  class="text-gray-400 hover:text-white transform hover:scale-110 transition"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a
-                  href="#"
-                  class="text-gray-400 hover:text-white transform hover:scale-110 transition"
-                  ><i class="fab fa-linkedin"></i
-                ></a>
-                <a
-                  href="#"
-                  class="text-gray-400 hover:text-white transform hover:scale-110 transition"
-                  ><i class="fab fa-facebook"></i
-                ></a>
+                <a href="#" class="text-gray-300 hover:text-accent transform hover:scale-110 transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-300 hover:text-accent transform hover:scale-110 transition"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-gray-300 hover:text-accent transform hover:scale-110 transition"><i class="fab fa-facebook"></i></a>
               </div>
             </div>
             <div class="animate-fade-in" style="animation-delay: 0.2s">
-              <h5 class="font-semibold mb-3">Product</h5>
+              <h5 class="font-semibold mb-3 text-accent">Product</h5>
               <ul class="space-y-2">
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-white"
-                    >Features</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-white">Pricing</a>
-                </li>
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-white"
-                    >Integrations</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-white">Updates</a>
-                </li>
+                <li><a href="#" class="text-gray-300 hover:text-accent">Features</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-accent">Pricing</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-accent">Integrations</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-accent">Updates</a></li>
               </ul>
             </div>
             <div class="animate-fade-in" style="animation-delay: 0.4s">
-              <h5 class="font-semibold mb-3">Company</h5>
+              <h5 class="font-semibold mb-3 text-accent">Company</h5>
               <ul class="space-y-2">
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-white"
-                    >About Us</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-white">Careers</a>
-                </li>
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-white">Press</a>
-                </li>
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-white">Blog</a>
-                </li>
+                <li><a href="#" class="text-gray-300 hover:text-accent">About Us</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-accent">Careers</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-accent">Press</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-accent">Blog</a></li>
               </ul>
             </div>
             <div class="animate-fade-in" style="animation-delay: 0.6s">
-              <h5 class="font-semibold mb-3">Support</h5>
+              <h5 class="font-semibold mb-3 text-accent">Support</h5>
               <ul class="space-y-2">
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-white"
-                    >Help Center</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-white"
-                    >Contact Us</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-white"
-                    >Privacy Policy</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-white"
-                    >Terms of Service</a
-                  >
-                </li>
+                <li><a href="#" class="text-gray-300 hover:text-accent">Help Center</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-accent">Contact Us</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-accent">Privacy Policy</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-accent">Terms of Service</a></li>
               </ul>
             </div>
           </div>
-          <div
-            class="border-t border-gray-800 mt-8 pt-6 text-center animate-fade-in"
-            style="animation-delay: 0.8s"
-          >
-            <p class="text-gray-500">© 2025 FlowSync. All rights reserved.</p>
+          <div class="border-t border-gray-700 mt-8 pt-6 text-center animate-fade-in" style="animation-delay: 0.8s">
+            <p class="text-gray-400">© 2025 FlowSync. All rights reserved.</p>
           </div>
         </div>
       </footer>
